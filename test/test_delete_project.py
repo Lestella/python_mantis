@@ -1,0 +1,17 @@
+from model.project import Project
+import random
+
+
+def test_delete_project(app):
+    app.session.login("administrator", "root")
+    if len(app.project.get_projects_lst()) == 0:
+        app.project.create_project(Project(name="project-name-" + str(random.randrange(50)),
+                                           status=random.choice(["development", "release"]),
+                                           view_status=random.choice(["private", "public"]),
+                                           description="project-description-" + str(random.randrange(50))))
+    old_projects_lst = app.project.get_projects_lst()
+    project = random.choice(old_projects_lst)
+    app.project.delete_project(project)
+    new_projects_list = app.project.get_projects_lst()
+    old_projects_lst.remove(project)
+    assert old_projects_lst == new_projects_list
