@@ -28,7 +28,7 @@ def random_string(prefix, maxlen):
 
 
 testdata = [Project(name="", status="", view_status="", description="")] + [
-    Project(name=random_string("project-name", 10), status=random.choice(["development", "release"]), view_status=random.choice(["private", "public"]), description="desc" + str(random.randrange(50)))
+    Project(name=random_string("project-name-", 10), status=random.choice(["development", "release"]), view_status=random.choice(["private", "public"]), description="desc" + str(random.randrange(50)))
     for i in range(n)
 ]
 

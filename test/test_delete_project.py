@@ -9,9 +9,9 @@ def test_delete_project(app):
                                            status=random.choice(["development", "release"]),
                                            view_status=random.choice(["private", "public"]),
                                            description="project-description-" + str(random.randrange(50))))
-    old_projects_lst = app.project.get_projects_lst()
-    project = random.choice(old_projects_lst)
+    old_projects_list = app.project.get_projects_lst()
+    project = random.choice(old_projects_list)
     app.project.delete_project(project)
     new_projects_list = app.project.get_projects_lst()
-    old_projects_lst.remove(project)
-    assert old_projects_lst == new_projects_list
+    old_projects_list.remove(project)
+    assert old_projects_list == new_projects_list
