@@ -3,7 +3,7 @@ from sys import maxsize
 
 class Project:
 
-    def __init__(self, id=None, name=None, status=None, view_status=None, description=None ):
+    def __init__(self, id=None, name=None, status=None, view_status=None, description=None):
         self.id = id
         self.name = name
         self.status = status

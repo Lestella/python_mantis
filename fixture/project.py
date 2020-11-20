@@ -33,7 +33,7 @@ class ProjectHelper:
         self.change_option_value("view_state", project.viewstatus)
         self.change_field_value("description", project.description)
 
-    def get_projects_lst(self):
+    def get_projects_list(self):
         wd = self.app.wd
         self.open_project_page()
         proj_table = wd.find_elements_by_tag_name("table")[2]
